@@ -1,17 +1,29 @@
-import { Store } from "lucide-react"
+import { cn } from "@/lib/utils"
 
-export function Logo({ subtitle = true }: { subtitle?: boolean }) {
+export function Logo({
+  variant = "default",
+  subtitle = false,
+}: {
+  variant?: "default" | "on-dark"
+  subtitle?: boolean
+}) {
   return (
     <div className="flex items-center gap-2">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/15">
-        <Store className="h-5 w-5 text-white" />
-      </div>
-      <div className="leading-tight">
-        <p className="text-sm font-bold text-white">CDL Novo Gama</p>
-        {subtitle && (
-          <p className="text-[10px] text-white/80">Câmara de Dirigentes Lojistas de Novo Gama-GO</p>
-        )}
-      </div>
+      <img
+        src="/cdl-logo.png"
+        alt="CDL Novo Gama"
+        className={cn("h-8 w-auto shrink-0", variant === "on-dark" && "rounded-lg bg-white p-1.5")}
+      />
+      {subtitle && (
+        <p
+          className={cn(
+            "leading-tight",
+            variant === "on-dark" ? "text-[11px] font-medium text-white" : "text-[10px] text-slate-500"
+          )}
+        >
+          Câmara de Dirigentes Lojistas de Novo Gama-GO
+        </p>
+      )}
     </div>
   )
 }

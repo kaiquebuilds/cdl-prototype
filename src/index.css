@@ -5,15 +5,21 @@
 
   --color-border: hsl(220 13% 88%);
   --color-input: hsl(220 13% 88%);
-  --color-ring: hsl(217 91% 35%);
+  --color-ring: hsl(213 74% 34%);
   --color-background: hsl(0 0% 100%);
   --color-foreground: hsl(222 47% 11%);
 
-  --color-primary: hsl(217 91% 35%);
+  --color-primary: hsl(213 74% 34%);
   --color-primary-foreground: hsl(0 0% 100%);
 
-  --color-secondary: hsl(142 71% 35%);
+  --color-secondary: hsl(146 100% 35%);
   --color-secondary-foreground: hsl(0 0% 100%);
+
+  --color-brand-blue: hsl(213 74% 34%);
+  --color-brand-blue-dark: hsl(213 74% 24%);
+  --color-brand-green: hsl(146 100% 35%);
+  --color-brand-green-dark: hsl(146 100% 24%);
+  --color-brand-yellow: hsl(48 100% 48%);
 
   --color-muted: hsl(220 14% 96%);
   --color-muted-foreground: hsl(220 9% 46%);

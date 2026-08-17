@@ -10,7 +10,7 @@ export function Home() {
     <div className="flex flex-1 flex-col overflow-hidden">
       <ScreenHeader />
       <div className="flex-1 overflow-y-auto p-4">
-        <Card className="mb-4 border-none bg-gradient-to-br from-green-600 to-green-700 text-white">
+        <Card className="mb-4 border-none bg-gradient-to-br from-[#00B050] to-[#007A3D] text-white">
           <CardContent className="p-4">
             <p className="text-sm font-semibold">Fortalecendo o comércio de Novo Gama</p>
             <p className="mt-1 text-xs text-white/90">
@@ -18,7 +18,7 @@ export function Home() {
             </p>
             <Link
               to="/associar-se"
-              className="mt-3 inline-flex items-center gap-1 rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-green-700"
+              className="mt-3 inline-flex items-center gap-1 rounded-lg bg-white px-3 py-1.5 text-xs font-semibold text-[#007A3D]"
             >
               Associe-se agora <ChevronRight className="h-3.5 w-3.5" />
             </Link>

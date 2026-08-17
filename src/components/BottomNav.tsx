@@ -4,7 +4,7 @@ import {
   Home,
   Newspaper,
   Calendar,
-  Tag,
+  Gift,
   UserPlus,
   IdCard,
   Users,
@@ -24,7 +24,7 @@ const navByProfile: Record<string, NavItem[]> = {
     { to: "/", label: "Home", icon: Home },
     { to: "/diretorio", label: "Associados", icon: Users },
     { to: "/eventos", label: "Eventos", icon: Calendar },
-    { to: "/parcerias", label: "Parcerias", icon: Tag },
+    { to: "/parcerias", label: "Benefícios", icon: Gift },
     { to: "/associar-se", label: "Associar-se", icon: UserPlus },
   ],
   associado: [
@@ -32,14 +32,14 @@ const navByProfile: Record<string, NavItem[]> = {
     { to: "/diretorio", label: "Associados", icon: Users },
     { to: "/eventos", label: "Eventos", icon: Calendar },
     { to: "/noticias", label: "Notícias", icon: Newspaper },
-    { to: "/parcerias", label: "Parcerias", icon: Tag },
+    { to: "/parcerias", label: "Benefícios", icon: Gift },
   ],
   admin: [
     { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
     { to: "/associados", label: "Associados", icon: Users },
     { to: "/eventos", label: "Eventos", icon: Calendar },
     { to: "/noticias", label: "Notícias", icon: Newspaper },
-    { to: "/parcerias", label: "Parcerias", icon: Tag },
+    { to: "/parcerias", label: "Benefícios", icon: Gift },
   ],
 }
 

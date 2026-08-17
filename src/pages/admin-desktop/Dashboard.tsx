@@ -21,7 +21,7 @@ const atividades = [
   { icon: Wallet, text: "Maria Silva pagou a mensalidade", tempo: "17/08/2026 07:40" },
   { icon: Newspaper, text: "Nova notícia publicada", tempo: "16/08/2026 18:05" },
   { icon: Calendar, text: "Evento 'Feira de Negócios' criado", tempo: "15/08/2026 11:30" },
-  { icon: Tag, text: "Parceria com Auto Posto Novo Gama renovada", tempo: "14/08/2026 16:22" },
+  { icon: Tag, text: "Benefício com Auto Posto Novo Gama renovado", tempo: "14/08/2026 16:22" },
 ]
 
 function parseData(d: string) {
@@ -39,12 +39,12 @@ export function Dashboard() {
   const proximosEventos = [...eventos].sort((a, b) => parseData(a.data).getTime() - parseData(b.data).getTime()).slice(0, 3)
 
   const kpis = [
-    { label: "Total de associados", value: total, icon: Users, color: "bg-blue-50 text-blue-700" },
+    { label: "Total de associados", value: total, icon: Users, color: "bg-blue-50 text-[#154C96]" },
     {
       label: "Receita mensal",
       value: receita.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }),
       icon: Wallet,
-      color: "bg-green-50 text-green-700",
+      color: "bg-green-50 text-[#00B050]",
     },
     { label: "Taxa de inadimplência", value: `${inadimplencia}%`, icon: AlertCircle, color: "bg-red-50 text-red-700" },
     { label: "Eventos este mês", value: eventos.length, icon: Calendar, color: "bg-purple-50 text-purple-700" },
@@ -113,7 +113,7 @@ export function Dashboard() {
           <CardContent className="pt-0">
             {atrasados.length === 0 ? (
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-green-600" /> Nenhum associado em atraso.
+                <CheckCircle2 className="h-4 w-4 text-[#00B050]" /> Nenhum associado em atraso.
               </div>
             ) : (
               <table className="w-full text-sm">

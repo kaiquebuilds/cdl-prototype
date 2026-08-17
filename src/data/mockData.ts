@@ -182,53 +182,133 @@ export const eventos: Evento[] = [
   },
 ]
 
-export interface Parceria {
+export interface Beneficio {
   id: string
-  parceiro: string
-  desconto: string
+  nome: string
   categoria: string
+  desconto: string
   descricao: string
-  cupom?: string
   comoComprovar: string
+  telefone?: string
+  link?: string
+  linkLabel?: string
+  cupom?: string
 }
 
-export const parcerias: Parceria[] = [
+export const beneficios: Beneficio[] = [
   {
-    id: "p1",
-    parceiro: "Farmácia Vida Mais",
-    desconto: "15% em medicamentos",
+    id: "spc-brasil",
+    nome: "SPC Brasil",
+    categoria: "Serviços Empresariais",
+    desconto: "Acesso ao sistema de consulta",
+    descricao: "Acesso ao sistema SPC Brasil para consulta de crédito, inadimplência e situação cadastral de clientes. Mais segurança e informações para o seu negócio tomar decisões com confiança.",
+    comoComprovar: "Apresente a carteirinha digital do associado na sede da CDL ou solicite seu acesso pelo WhatsApp (61) 98151-2903.",
+    telefone: "(11) 3549-6800",
+    link: "https://spcbrasil.org.br",
+    linkLabel: "Site oficial",
+  },
+  {
+    id: "sebrae",
+    nome: "SEBRAE",
+    categoria: "Capacitação",
+    desconto: "Cursos gratuitos e palestras",
+    descricao: "Cursos e palestras em parceria com o SEBRAE para você e sua equipe. Capacitação em gestão de negócios, vendas, marketing digital, finanças e empreendedorismo. Vagas garantidas para associados CDL.",
+    comoComprovar: "Matrícula gratuita mediante apresentação da carteirinha digital do associado na sede da CDL ou diretamente no SEBRAE.",
+    telefone: "0800 570 0800",
+    link: "https://sebrae.com.br",
+    linkLabel: "Site oficial",
+  },
+  {
+    id: "iesb",
+    nome: "IESB Centro Universitário",
+    categoria: "Educação",
+    desconto: "Até 20% de desconto nas mensalidades",
+    descricao: "Desconto exclusivo para associados CDL e seus dependentes em cursos de graduação e pós-graduação no IESB Centro Universitário. Invista na sua educação com valores acessíveis.",
+    comoComprovar: "Apresente a carteirinha digital do associado na secretaria do IESB no ato da matrícula ou renovação.",
+    telefone: "(61) 3340-3747",
+    link: "https://instagram.com/iesb",
+    linkLabel: "Instagram",
+  },
+  {
+    id: "colegio-plenitude",
+    nome: "Colégio Evangélico Plenitude",
+    categoria: "Educação",
+    desconto: "Até 20% de desconto nas mensalidades",
+    descricao: "Desconto em mensalidades para associados CDL e dependentes, da educação infantil ao ensino médio. Educação de qualidade com valores cristãos e proposta pedagógica diferenciada.",
+    comoComprovar: "Apresente a carteirinha digital do associado na secretaria do colégio no ato da matrícula.",
+    telefone: "(61) 3628-5532",
+    link: "https://instagram.com/colegioevangelicoplenitude",
+    linkLabel: "Instagram",
+  },
+  {
+    id: "escola-artedosaber",
+    nome: "Escola Evangélica Arte do Saber",
+    categoria: "Educação",
+    desconto: "Até 20% de desconto nas mensalidades",
+    descricao: "Desconto em mensalidades para associados CDL e dependentes. Educação infantil e fundamental com proposta pedagógica focada no desenvolvimento integral do aluno.",
+    comoComprovar: "Apresente a carteirinha digital do associado na secretaria da escola no ato da matrícula.",
+    telefone: "(61) 98187-9217",
+    link: "https://instagram.com/escolaartedosaber",
+    linkLabel: "Instagram",
+  },
+  {
+    id: "sorria-saude",
+    nome: "Sorria Saúde",
     categoria: "Saúde",
-    descricao: "Desconto exclusivo para associados em toda a linha de genéricos.",
-    cupom: "CDL10",
-    comoComprovar: "Apresente a carteirinha digital do associado no caixa antes de finalizar a compra.",
+    desconto: "Até 40% de desconto",
+    descricao: "Convênio com a clínica Sorria Saúde oferecendo até 40% de desconto em consultas odontológicas, limpeza, extração e procedimentos estéticos. Cuide da sua saúde bucal com preços acessíveis.",
+    comoComprovar: "Apresente a carteirinha digital do associado na recepção da clínica antes do atendimento.",
+    telefone: "(61) 4042-9877",
+    link: "https://instagram.com/sorriasaude",
+    linkLabel: "Instagram",
   },
   {
-    id: "p2",
-    parceiro: "Auto Posto Novo Gama",
-    desconto: "R$ 0,10/litro de desconto",
-    categoria: "Automotivo",
-    descricao: "Abastecimento com desconto mediante apresentação da carteira digital.",
-    comoComprovar: "Apresente a carteirinha digital do associado ao frentista antes do abastecimento.",
+    id: "oticapopular",
+    nome: "Ótica Popular",
+    categoria: "Saúde",
+    desconto: "Descontos exclusivos em óculos",
+    descricao: "Descontos exclusivos em óculos de grau e de sol, armações e lentes. Cuide da sua visão com qualidade e preços acessíveis para toda a família.",
+    comoComprovar: "Apresente a carteirinha digital do associado na loja no momento da compra.",
+    telefone: "(61) 3628-1227",
+    link: "https://instagram.com/oticapopular",
+    linkLabel: "Instagram",
   },
   {
-    id: "p3",
-    parceiro: "Academia Corpo Ativo",
-    desconto: "20% na mensalidade",
+    id: "corpo-acao",
+    nome: "Corpo e Ação",
     categoria: "Saúde e Bem-estar",
-    descricao: "Condição especial para associados e dependentes diretos.",
-    cupom: "CDL2026",
-    comoComprovar: "Apresente a carteirinha digital do associado na recepção da academia.",
+    desconto: "Condições especiais em mensalidades",
+    descricao: "Descontos exclusivos em mensalidades e planos da academia Corpo e Ação. Cuide da sua saúde e bem-estar com condições especiais para associados CDL e dependentes.",
+    comoComprovar: "Apresente a carteirinha digital do associado na recepção da academia no momento da matrícula.",
+    telefone: "(61) 98532-6344",
+    link: "https://instagram.com/corpoeacao",
+    linkLabel: "Instagram",
   },
   {
-    id: "p4",
-    parceiro: "Kube Creative Work",
-    desconto: "10% em serviços de design",
-    categoria: "Sites e Sistemas",
-    descricao: "Desconto em pacotes de branding e identidade visual para lojistas.",
-    cupom: "CDLDESIGN10",
-    comoComprovar: "Use o código de cupom no orçamento ou apresente a carteirinha digital do associado.",
+    id: "certificadora-digital",
+    nome: "Certificação Digital",
+    categoria: "Serviços Empresariais",
+    desconto: "Melhor preço da região",
+    descricao: "Parceria com certificadora digital para emissão de certificados digitais (e-CPF, e-CNPJ, NF-e) com o melhor preço da região para você e sua empresa. Documentação digital com segurança e agilidade.",
+    comoComprovar: "Entre em contato pelo WhatsApp da CDL (61) 98151-2903 para indicação da certificadora parceira e solicitação do desconto.",
+    telefone: "(61) 98151-2903",
+    link: "https://wa.me/5561981512903",
+    linkLabel: "WhatsApp CDL",
+  },
+  {
+    id: "aguas-correntes",
+    nome: "Águas Correntes Park",
+    categoria: "Lazer e Família",
+    desconto: "5 convites gratuitos",
+    descricao: "Parceria com o Águas Correntes Park garantindo 5 convites gratuitos para você e sua família aproveitarem o parque aquático, piscinas, toboáguas e áreas de lazer. Diversão garantida para todos.",
+    comoComprovar: "Retire os convites na sede da CDL mediante apresentação da carteirinha digital do associado.",
+    telefone: "(61) 3030-4300",
+    link: "https://instagram.com/aguascorrentespark",
+    linkLabel: "Instagram",
   },
 ]
+
+export const parcerias = beneficios
 
 export interface Emprego {
   id: string

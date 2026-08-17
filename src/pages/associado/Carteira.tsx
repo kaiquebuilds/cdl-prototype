@@ -21,7 +21,7 @@ export function Carteira() {
         }
       />
       <div className="flex-1 overflow-y-auto p-4">
-        <Card className="overflow-hidden border-none bg-gradient-to-br from-blue-800 via-blue-700 to-green-600 text-white shadow-lg">
+        <Card className="overflow-hidden border-none bg-gradient-to-br from-[#154C96] via-[#002B7F] to-[#00B050] text-white shadow-lg">
           <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <p className="text-xs font-semibold uppercase tracking-wide text-white/80">Carteira de Associado</p>

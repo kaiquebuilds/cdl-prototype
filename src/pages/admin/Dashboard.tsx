@@ -21,7 +21,7 @@ const atividades = [
   { icon: Wallet, text: "Maria Silva pagou a mensalidade", tempo: "5h atrás" },
   { icon: Newspaper, text: "Nova notícia publicada", tempo: "1 dia atrás" },
   { icon: Calendar, text: "Evento 'Feira de Negócios' criado", tempo: "2 dias atrás" },
-  { icon: Tag, text: "Parceria com Auto Posto Novo Gama renovada", tempo: "3 dias atrás" },
+  { icon: Tag, text: "Benefício com Auto Posto Novo Gama renovado", tempo: "3 dias atrás" },
 ]
 
 export function Dashboard() {
@@ -34,7 +34,7 @@ export function Dashboard() {
 
   const quickStats = [
     { label: "Eventos no mês", value: eventos.length, icon: Calendar, color: "bg-purple-50 text-purple-700" },
-    { label: "Parcerias ativas", value: parcerias.length, icon: Tag, color: "bg-blue-50 text-blue-700" },
+    { label: "Benefícios ativos", value: parcerias.length, icon: Tag, color: "bg-blue-50 text-[#154C96]" },
     { label: "Notícias publicadas", value: noticias.length, icon: FileText, color: "bg-slate-100 text-slate-700" },
   ]
 
@@ -42,7 +42,7 @@ export function Dashboard() {
     <div className="flex flex-1 flex-col overflow-hidden">
       <ScreenHeader title="Dashboard" />
       <div className="flex-1 overflow-y-auto p-4">
-        <Card className="border-none bg-gradient-to-br from-blue-800 via-blue-700 to-green-600 text-white shadow-lg">
+        <Card className="border-none bg-gradient-to-br from-[#154C96] via-[#002B7F] to-[#00B050] text-white shadow-lg">
           <CardContent className="p-4">
             <div className="flex items-center gap-1.5 text-xs font-semibold uppercase tracking-wide text-white/80">
               <Wallet className="h-3.5 w-3.5" /> Receita mensal estimada
@@ -59,7 +59,7 @@ export function Dashboard() {
         <div className="mt-3 grid grid-cols-2 gap-3">
           <Card>
             <CardContent className="p-3">
-              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-blue-700">
+              <div className="mb-2 flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 text-[#154C96]">
                 <Users className="h-4 w-4" />
               </div>
               <p className="text-2xl font-bold">{total}</p>
@@ -79,10 +79,10 @@ export function Dashboard() {
 
         <Card className="mt-3 border-green-200 bg-green-50">
           <CardContent className="flex items-center gap-3 p-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-100 text-green-700">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-green-100 text-[#00B050]">
               <TrendingUp className="h-4 w-4" />
             </div>
-            <p className="text-sm font-semibold text-green-800">+3 novos associados este mês</p>
+            <p className="text-sm font-semibold text-[#007A3D]">+3 novos associados este mês</p>
           </CardContent>
         </Card>
 
@@ -132,7 +132,7 @@ export function Dashboard() {
               ))}
             {pendentes + atrasados === 0 && (
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-green-600" /> Todos os associados estão em dia.
+                <CheckCircle2 className="h-4 w-4 text-[#00B050]" /> Todos os associados estão em dia.
               </div>
             )}
           </CardContent>

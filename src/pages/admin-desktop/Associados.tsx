@@ -60,7 +60,7 @@ export function Associados() {
       />
       <div className="flex-1 overflow-y-auto p-8">
         <p className="mb-4 text-sm text-muted-foreground">
-          <span className="font-semibold text-green-700">{emDia} em dia</span> ·{" "}
+          <span className="font-semibold text-[#00B050]">{emDia} em dia</span> ·{" "}
           <span className="font-semibold text-amber-700">{pendentes} pendentes</span> ·{" "}
           <span className="font-semibold text-red-700">{atrasados} atrasados</span> ·{" "}
           <span className="font-semibold text-slate-700">{associados.length} no total</span>
