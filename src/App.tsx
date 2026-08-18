@@ -6,6 +6,7 @@ import { BottomNav } from "@/components/BottomNav"
 import { AdminLayout } from "@/components/admin-desktop/AdminLayout"
 
 import { Home } from "@/pages/publico/Home"
+import { Sobre } from "@/pages/publico/Sobre"
 import { Noticias as PublicoNoticias } from "@/pages/publico/Noticias"
 import { Eventos as PublicoEventos } from "@/pages/publico/Eventos"
 import { Parcerias as PublicoParcerias } from "@/pages/publico/Parcerias"
@@ -38,6 +39,7 @@ function PublicoRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/sobre" element={<Sobre />} />
       <Route path="/noticias" element={<PublicoNoticias />} />
       <Route path="/diretorio" element={<Diretorio />} />
       <Route path="/diretorio/:id" element={<MembroPublico />} />
