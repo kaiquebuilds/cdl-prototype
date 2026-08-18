@@ -15,7 +15,7 @@ export function Carteira() {
       <ScreenHeader
         title="Carteira Digital"
         action={
-          <Link to="/perfil" className="rounded-full bg-white/15 p-2 text-white">
+          <Link to="/perfil" className="rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200">
             <Settings className="h-4 w-4" />
           </Link>
         }

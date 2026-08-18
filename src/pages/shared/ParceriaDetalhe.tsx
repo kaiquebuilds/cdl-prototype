@@ -25,8 +25,8 @@ export function ParceriaDetalhe() {
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
       <ScreenHeader
-        action={
-          <button onClick={() => navigate(-1)} className="rounded-full bg-white/15 p-2 text-white">
+        leftAction={
+          <button onClick={() => navigate(-1)} className="rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200">
             <ArrowLeft className="h-4 w-4" />
           </button>
         }

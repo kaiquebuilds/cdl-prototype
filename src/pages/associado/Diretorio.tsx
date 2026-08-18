@@ -22,7 +22,7 @@ export function Diretorio() {
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
-      <ScreenHeader title="Associados" />
+      <ScreenHeader title="Guia Comercial" />
       <div className="flex-1 overflow-y-auto p-4">
         <div className="mb-3 flex flex-col gap-2">
           <div className="relative">

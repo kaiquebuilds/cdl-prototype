@@ -5,7 +5,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { associados } from "@/data/mockData"
-import { ArrowLeft, MapPin, Phone } from "lucide-react"
+import { ArrowLeft, MapPin, Phone, Package } from "lucide-react"
 
 export function MembroPublico() {
   const { id } = useParams()
@@ -26,8 +26,12 @@ export function MembroPublico() {
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
       <ScreenHeader
-        action={
-          <button onClick={() => navigate(-1)} className="rounded-full bg-white/15 p-2 text-white">
+        title={associado.nome}
+        leftAction={
+          <button
+            onClick={() => navigate(-1)}
+            className="rounded-full bg-slate-100 p-2 text-slate-700 hover:bg-slate-200"
+          >
             <ArrowLeft className="h-4 w-4" />
           </button>
         }
@@ -55,7 +59,41 @@ export function MembroPublico() {
           </CardContent>
         </Card>
 
-        <Button className="mt-4 w-full" variant="secondary">Entrar em contato</Button>
+        {associado.produtos && associado.produtos.length > 0 && (
+          <Card className="mt-3">
+            <CardContent className="p-4">
+              <h2 className="mb-3 flex items-center gap-1.5 text-sm font-bold">
+                <Package className="h-4 w-4 text-primary" /> Produtos e Serviços
+              </h2>
+              <div className="flex flex-col gap-3">
+                {associado.produtos.map((p) => (
+                  <div key={p.nome} className="border-b border-border pb-3 last:border-0 last:pb-0">
+                    <p className="text-sm font-semibold">{p.nome}</p>
+                    <p className="text-xs text-muted-foreground">{p.descricao}</p>
+                  </div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        )}
+
+        <Card className="mt-3 overflow-hidden">
+          <div className="relative h-32 bg-[linear-gradient(0deg,transparent_24%,#e2e8f0_25%,#e2e8f0_26%,transparent_27%,transparent_74%,#e2e8f0_75%,#e2e8f0_76%,transparent_77%,transparent),linear-gradient(90deg,transparent_24%,#e2e8f0_25%,#e2e8f0_26%,transparent_27%,transparent_74%,#e2e8f0_75%,#e2e8f0_76%,transparent_77%,transparent)] bg-[length:24px_24px] bg-slate-100">
+            <div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-full flex-col items-center">
+              <MapPin className="h-8 w-8 fill-primary text-primary drop-shadow" />
+            </div>
+          </div>
+          <CardContent className="p-3 text-center text-xs text-muted-foreground">{associado.endereco}</CardContent>
+        </Card>
+
+        <a
+          href={`https://wa.me/55${associado.telefone.replace(/\D/g, "").replace(/^55/, "")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-4 block"
+        >
+          <Button className="w-full" variant="secondary">Entrar em contato</Button>
+        </a>
       </div>
     </div>
   )

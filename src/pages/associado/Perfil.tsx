@@ -1,3 +1,4 @@
+import * as React from "react"
 import { ScreenHeader } from "@/components/ScreenHeader"
 import { Card, CardContent } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
@@ -7,13 +8,17 @@ import { Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback } from "@/components/ui/avatar"
 import { associadoLogado } from "@/data/mockData"
-import { Camera } from "lucide-react"
+import { Camera, Plus } from "lucide-react"
 
 const categorias = ["Serviços Jurídicos", "Sites e Sistemas", "Tecnologia", "Farmácia", "Mercearia", "Loja de Roupas", "Padaria"]
 
 export function Perfil() {
   const a = associadoLogado
   const iniciais = a.nome.split(" ").slice(0, 2).map((w) => w[0]).join("")
+
+  const [produtos, setProdutos] = React.useState(
+    a.produtos ?? []
+  )
 
   return (
     <div className="flex flex-1 flex-col overflow-hidden">
@@ -35,6 +40,10 @@ export function Perfil() {
             <div className="flex flex-col gap-1.5">
               <Label>Nome da empresa</Label>
               <Input defaultValue={a.nome} />
+            </div>
+            <div className="flex flex-col gap-1.5">
+              <Label>Responsável</Label>
+              <Input defaultValue={a.responsavel} />
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Categoria</Label>
@@ -64,9 +73,50 @@ export function Perfil() {
               <Label>WhatsApp</Label>
               <Input placeholder="(61) 90000-0000" />
             </div>
-            <Button className="mt-2">Salvar alterações</Button>
           </CardContent>
         </Card>
+
+        <Card className="mt-4">
+          <CardContent className="flex flex-col gap-3 p-4">
+            <Label className="text-sm font-bold">Produtos e Serviços</Label>
+            {produtos.map((p, i) => (
+              <div key={i} className="flex flex-col gap-2 border-b border-border pb-3 last:border-0 last:pb-0">
+                <div className="flex flex-col gap-1.5">
+                  <Label className="text-xs text-muted-foreground">Nome</Label>
+                  <Input
+                    defaultValue={p.nome}
+                    onChange={(e) => {
+                      const next = [...produtos]
+                      next[i] = { ...next[i], nome: e.target.value }
+                      setProdutos(next)
+                    }}
+                  />
+                </div>
+                <div className="flex flex-col gap-1.5">
+                  <Label className="text-xs text-muted-foreground">Descrição</Label>
+                  <Textarea
+                    defaultValue={p.descricao}
+                    rows={2}
+                    onChange={(e) => {
+                      const next = [...produtos]
+                      next[i] = { ...next[i], descricao: e.target.value }
+                      setProdutos(next)
+                    }}
+                  />
+                </div>
+              </div>
+            ))}
+            <Button
+              variant="outline"
+              className="flex items-center gap-2"
+              onClick={() => setProdutos([...produtos, { nome: "", descricao: "" }])}
+            >
+              <Plus className="h-4 w-4" /> Adicionar produto/serviço
+            </Button>
+          </CardContent>
+        </Card>
+
+        <Button className="mt-4 w-full">Salvar alterações</Button>
       </div>
     </div>
   )

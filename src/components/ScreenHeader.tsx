@@ -1,14 +1,22 @@
 import * as React from "react"
-import { Logo } from "@/components/Logo"
 
-export function ScreenHeader({ title, action }: { title?: string; action?: React.ReactNode }) {
+export function ScreenHeader({
+  title,
+  action,
+  leftAction,
+}: {
+  title?: string
+  action?: React.ReactNode
+  leftAction?: React.ReactNode
+}) {
+  if (!title && !action && !leftAction) return null
   return (
-    <div className="shrink-0 bg-gradient-to-r from-[#154C96] to-[#002B7F] px-4 pb-3 pt-3">
-      <div className="flex items-center justify-between">
-        <Logo variant="on-dark" subtitle={!title} />
-        {action}
+    <div className="flex shrink-0 items-center justify-between border-b border-border bg-white px-4 py-3">
+      <div className="flex items-center gap-2">
+        {leftAction}
+        {title && <h1 className="text-base font-bold text-foreground">{title}</h1>}
       </div>
-      {title && <h1 className="mt-2 text-lg font-bold text-white">{title}</h1>}
+      {action}
     </div>
   )
 }

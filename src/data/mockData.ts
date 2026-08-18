@@ -1,5 +1,10 @@
 export type Profile = "publico" | "associado" | "admin"
 
+export interface Produto {
+  nome: string
+  descricao: string
+}
+
 export interface Associado {
   id: string
   nome: string
@@ -7,8 +12,11 @@ export interface Associado {
   endereco: string
   telefone: string
   descricao: string
+  responsavel: string
   status: "Em dia" | "Pendente" | "Atrasado"
   ultimoPagamento: string
+  produtos?: Produto[]
+  destaque?: boolean
 }
 
 export const associados: Associado[] = [
@@ -19,8 +27,15 @@ export const associados: Associado[] = [
     endereco: "Av. Brasil, 452 — Centro, Novo Gama-GO",
     telefone: "(61) 3321-4455",
     descricao: "Escritório de advocacia especializado em direito empresarial e tributário.",
+    responsavel: "Brunno Borges",
     status: "Em dia",
     ultimoPagamento: "05/08/2026",
+    destaque: true,
+    produtos: [
+      { nome: "Consultoria empresarial", descricao: "Assessoria jurídica contínua para pequenas e médias empresas." },
+      { nome: "Regularização tributária", descricao: "Análise e regularização de pendências fiscais e tributárias." },
+      { nome: "Contratos comerciais", descricao: "Elaboração e revisão de contratos entre empresas." },
+    ],
   },
   {
     id: "kube-creative",
@@ -28,9 +43,16 @@ export const associados: Associado[] = [
     categoria: "Sites e Sistemas",
     endereco: "Rua das Flores, 128 — Setor Pedro Ludovico, Novo Gama-GO",
     telefone: "(61) 99876-5432",
-    descricao: "Agência criativa focada em branding, design gráfico e marketing digital.",
+    descricao: "Agência especializada em desenvolvimento de sites, sistemas web e aplicativos para pequenas e médias empresas.",
+    responsavel: "Kaique Borges",
     status: "Em dia",
     ultimoPagamento: "10/08/2026",
+    destaque: true,
+    produtos: [
+      { nome: "Desenvolvimento de sites", descricao: "Sites institucionais e lojas virtuais responsivos." },
+      { nome: "Sistemas web sob medida", descricao: "Sistemas internos, painéis administrativos e integrações de API." },
+      { nome: "Aplicativos mobile", descricao: "Apps nativos e híbridos para iOS e Android." },
+    ],
   },
   {
     id: "controltech",
@@ -39,8 +61,10 @@ export const associados: Associado[] = [
     endereco: "Rua 14, 87 — Parque Estrela D'Alva, Novo Gama-GO",
     telefone: "(61) 99654-1234",
     descricao: "Soluções em tecnologia, suporte técnico e infraestrutura de TI para empresas.",
+    responsavel: "Pedro Henrique",
     status: "Pendente",
     ultimoPagamento: "22/06/2026",
+    destaque: true,
   },
   {
     id: "farmacia-vidamais",
@@ -49,8 +73,15 @@ export const associados: Associado[] = [
     endereco: "Av. Goiás, 210 — Centro, Novo Gama-GO",
     telefone: "(61) 3321-8890",
     descricao: "Farmácia de manipulação e medicamentos genéricos com atendimento 24h.",
+    responsavel: "Dra. Juliana Reis",
     status: "Em dia",
     ultimoPagamento: "01/08/2026",
+    destaque: true,
+    produtos: [
+      { nome: "Manipulação de fórmulas", descricao: "Medicamentos e cosméticos manipulados sob prescrição." },
+      { nome: "Medicamentos genéricos", descricao: "Linha completa com preços populares." },
+      { nome: "Aferição de pressão", descricao: "Serviço gratuito disponível para clientes." },
+    ],
   },
   {
     id: "mercearia-boaeconomia",
@@ -59,6 +90,7 @@ export const associados: Associado[] = [
     endereco: "Rua 5, 340 — Jardim Céu Azul, Novo Gama-GO",
     telefone: "(61) 3322-1187",
     descricao: "Mercearia de bairro com produtos essenciais e preços populares.",
+    responsavel: "Seu Antônio",
     status: "Atrasado",
     ultimoPagamento: "14/04/2026",
   },
@@ -69,8 +101,10 @@ export const associados: Associado[] = [
     endereco: "Av. Brasil, 90 — Centro, Novo Gama-GO",
     telefone: "(61) 99711-2233",
     descricao: "Moda feminina e masculina com coleções atualizadas a cada estação.",
+    responsavel: "Marina Santos",
     status: "Em dia",
     ultimoPagamento: "12/08/2026",
+    destaque: true,
   },
   {
     id: "padaria-panpronto",
@@ -79,6 +113,7 @@ export const associados: Associado[] = [
     endereco: "Rua 22, 55 — Setor Sul, Novo Gama-GO",
     telefone: "(61) 3321-5567",
     descricao: "Pães, salgados e doces artesanais fresquinhos todos os dias.",
+    responsavel: "Seu Joaquim",
     status: "Pendente",
     ultimoPagamento: "30/06/2026",
   },
@@ -208,6 +243,17 @@ export const beneficios: Beneficio[] = [
     linkLabel: "Site oficial",
   },
   {
+    id: "aguas-correntes",
+    nome: "Águas Correntes Park",
+    categoria: "Lazer e Família",
+    desconto: "5 convites gratuitos",
+    descricao: "Parceria com o Águas Correntes Park garantindo 5 convites gratuitos para você e sua família aproveitarem o parque aquático, piscinas, toboáguas e áreas de lazer. Diversão garantida para todos.",
+    comoComprovar: "Retire os convites na sede da CDL mediante apresentação da carteirinha digital do associado.",
+    telefone: "(61) 3030-4300",
+    link: "https://instagram.com/aguascorrentespark",
+    linkLabel: "Instagram",
+  },
+  {
     id: "sebrae",
     nome: "SEBRAE",
     categoria: "Capacitação",
@@ -295,20 +341,9 @@ export const beneficios: Beneficio[] = [
     link: "https://wa.me/5561981512903",
     linkLabel: "WhatsApp CDL",
   },
-  {
-    id: "aguas-correntes",
-    nome: "Águas Correntes Park",
-    categoria: "Lazer e Família",
-    desconto: "5 convites gratuitos",
-    descricao: "Parceria com o Águas Correntes Park garantindo 5 convites gratuitos para você e sua família aproveitarem o parque aquático, piscinas, toboáguas e áreas de lazer. Diversão garantida para todos.",
-    comoComprovar: "Retire os convites na sede da CDL mediante apresentação da carteirinha digital do associado.",
-    telefone: "(61) 3030-4300",
-    link: "https://instagram.com/aguascorrentespark",
-    linkLabel: "Instagram",
-  },
 ]
 
-export const parcerias = beneficios
+export const parcerias = [...beneficios]
 
 export interface Emprego {
   id: string

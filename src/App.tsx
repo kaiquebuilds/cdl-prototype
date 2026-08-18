@@ -1,18 +1,23 @@
 import { Routes, Route, Navigate, useLocation } from "react-router-dom"
 import { useProfile } from "@/context/ProfileContext"
 import { PhoneFrame } from "@/components/PhoneFrame"
-import { ProfileToggle } from "@/components/ProfileToggle"
-import { BottomNav } from "@/components/BottomNav"
+import { TopAppBar } from "@/components/TopAppBar"
 import { AdminLayout } from "@/components/admin-desktop/AdminLayout"
 
 import { Home } from "@/pages/publico/Home"
-import { Sobre } from "@/pages/publico/Sobre"
 import { Noticias as PublicoNoticias } from "@/pages/publico/Noticias"
 import { Eventos as PublicoEventos } from "@/pages/publico/Eventos"
 import { Parcerias as PublicoParcerias } from "@/pages/publico/Parcerias"
 import { Empregos } from "@/pages/publico/Empregos"
 import { Associar } from "@/pages/publico/Associar"
+import { SobreCDL } from "@/pages/publico/sobre-cdl/SobreCDL"
+import { FaleConosco } from "@/pages/publico/sobre-cdl/FaleConosco"
+import { Diretoria } from "@/pages/publico/sobre-cdl/Diretoria"
+import { CodigoEtica } from "@/pages/publico/sobre-cdl/CodigoEtica"
+import { Historia } from "@/pages/publico/sobre-cdl/Historia"
+import { MissaoVisaoValores } from "@/pages/publico/sobre-cdl/MissaoVisaoValores"
 
+import { Home as AssociadoHome } from "@/pages/associado/Home"
 import { Carteira } from "@/pages/associado/Carteira"
 import { Perfil } from "@/pages/associado/Perfil"
 import { Diretorio } from "@/pages/associado/Diretorio"
@@ -39,7 +44,13 @@ function PublicoRoutes() {
   return (
     <Routes>
       <Route path="/" element={<Home />} />
-      <Route path="/sobre" element={<Sobre />} />
+      <Route path="/sobre" element={<Navigate to="/sobre-cdl" replace />} />
+      <Route path="/sobre-cdl" element={<SobreCDL />} />
+      <Route path="/sobre-cdl/fale-conosco" element={<FaleConosco />} />
+      <Route path="/sobre-cdl/diretoria" element={<Diretoria />} />
+      <Route path="/sobre-cdl/codigo-etica" element={<CodigoEtica />} />
+      <Route path="/sobre-cdl/historia" element={<Historia />} />
+      <Route path="/sobre-cdl/missao-visao-valores" element={<MissaoVisaoValores />} />
       <Route path="/noticias" element={<PublicoNoticias />} />
       <Route path="/diretorio" element={<Diretorio />} />
       <Route path="/diretorio/:id" element={<MembroPublico />} />
@@ -56,6 +67,8 @@ function PublicoRoutes() {
 function AssociadoRoutes() {
   return (
     <Routes>
+      <Route path="/home" element={<AssociadoHome />} />
+      <Route path="/sobre" element={<Navigate to="/sobre-cdl" replace />} />
       <Route path="/carteira" element={<Carteira />} />
       <Route path="/perfil" element={<Perfil />} />
       <Route path="/diretorio" element={<Diretorio />} />
@@ -64,7 +77,14 @@ function AssociadoRoutes() {
       <Route path="/noticias" element={<AssociadoNoticias />} />
       <Route path="/parcerias" element={<AssociadoParcerias />} />
       <Route path="/parcerias/:id" element={<ParceriaDetalhe />} />
-      <Route path="*" element={<Navigate to="/carteira" replace />} />
+      <Route path="/empregos" element={<Empregos />} />
+      <Route path="/sobre-cdl" element={<SobreCDL />} />
+      <Route path="/sobre-cdl/fale-conosco" element={<FaleConosco />} />
+      <Route path="/sobre-cdl/diretoria" element={<Diretoria />} />
+      <Route path="/sobre-cdl/codigo-etica" element={<CodigoEtica />} />
+      <Route path="/sobre-cdl/historia" element={<Historia />} />
+      <Route path="/sobre-cdl/missao-visao-valores" element={<MissaoVisaoValores />} />
+      <Route path="*" element={<Navigate to="/home" replace />} />
     </Routes>
   )
 }
@@ -108,11 +128,12 @@ export default function App() {
 
   return (
     <PhoneFrame>
-      <ProfileToggle />
-      {profile === "publico" && <PublicoRoutes />}
-      {profile === "associado" && <AssociadoRoutes />}
-      {profile === "admin" && <AdminRoutes />}
-      <BottomNav />
+      <div className="relative flex flex-1 flex-col overflow-hidden">
+        <TopAppBar />
+        {profile === "publico" && <PublicoRoutes />}
+        {profile === "associado" && <AssociadoRoutes />}
+        {profile === "admin" && <AdminRoutes />}
+      </div>
     </PhoneFrame>
   )
 }
