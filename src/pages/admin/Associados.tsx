@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input"
 import { Select } from "@/components/ui/select"
 import { Button } from "@/components/ui/button"
 import { associados } from "@/data/mockData"
-import { Search, Download } from "lucide-react"
+import { Search, UserPlus } from "lucide-react"
 
 const statusVariant = {
   "Em dia": "success",
@@ -38,7 +38,7 @@ export function Associados() {
         title="Associados"
         action={
           <Button size="sm" variant="secondary" className="gap-1">
-            <Download className="h-3.5 w-3.5" /> Exportar CSV
+            <UserPlus className="h-3.5 w-3.5" /> Adicionar associado
           </Button>
         }
       />
